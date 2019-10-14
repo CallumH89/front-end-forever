@@ -1,4 +1,6 @@
-export const movieList = [{
+import filmData from '../types';
+
+export const filmList: filmData = [{
     "FilmId": 74569,
     "Title": "Abominable",
     "Cert": "PG",
