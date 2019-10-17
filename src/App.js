@@ -1,6 +1,11 @@
 import React from 'react';
 import './scss/app.scss';
-import Buttons from './components/button';
+import { ThemeProvider } from 'styled-components';
+import Button from './components/button';
+
+// import the theme from .json
+import boxofficeTheme from './themes/theme-boxoffice.json';
+const theme = boxofficeTheme;
 
 function App() {
   return (
@@ -11,7 +16,14 @@ function App() {
       <div className='content'>
         <h1>Components Library</h1>
         <p>Hello!</p>
-        <Buttons />
+        {/* button - no theme */}
+        <Button />
+        {/* everything in here will use the theme */}
+        <ThemeProvider theme={theme}>
+          <Button />
+          {/* button with a prop to modify */}
+          <Button inverted />
+        </ThemeProvider>
       </div>
     </div>
   );
