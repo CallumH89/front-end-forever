@@ -1,19 +1,20 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
 const Button = styled.button`
-  background: #fff;
+  background: ${props => (props.inverted ? props.theme.btnColorPrimary : props.theme.btnColorSecondary)};
   border: 2px solid ${props => props.theme.btnColorPrimary};
   border-radius: 4px;
-  color: ${props => props.theme.btnColorPrimary};
+  color: ${props => (props.inverted ? props.theme.btnColorSecondary : props.theme.btnColorPrimary)};
+  cursor: pointer;
   display: inline-block;
   font-size: 1rem;
   margin: 0.5rem;
   padding: 0.5rem;
   width: 200px;
   :hover {
-    background: ${props => props.theme.btnColorPrimary};
-    color: ${props => props.theme.btnColorSecondary};
+    background: ${props => (props.inverted ? props.theme.btnColorSecondary : props.theme.btnColorPrimary)};
+    color: ${props => (props.inverted ? props.theme.btnColorPrimary : props.theme.btnColorSecondary)};
   }
 `;
 
@@ -24,30 +25,8 @@ Button.defaultProps = {
   }
 };
 
-const theme = {
-  btnColorPrimary: '#e4002b',
-  btnColorSecondary: '#fff'
-};
-
-const InvertedButton = styled(Button)`
-  background: ${props => props.theme.btnColorPrimary};
-  color: ${props => props.theme.btnColorSecondary};
-  :hover {
-    background: ${props => props.theme.btnColorSecondary};
-    color: ${props => props.theme.btnColorPrimary};
-  }
-`;
-
 export default class Buttons extends React.Component {
   render() {
-    return (
-      <>
-        <Button>Default</Button>
-        <ThemeProvider theme={theme}>
-          <Button>Button</Button>
-          <InvertedButton>Inverted</InvertedButton>
-        </ThemeProvider>
-      </>
-    );
+    return <Button inverted={this.props.inverted}>Default</Button>;
   }
 }
