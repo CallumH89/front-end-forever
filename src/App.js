@@ -21,8 +21,9 @@ function App() {
         {/* everything in here will use the theme */}
         <ThemeProvider theme={theme}>
           <Button />
+          <Button small />
           {/* button with a prop to modify */}
-          <Button inverted />
+          <Button large inverted />
         </ThemeProvider>
       </div>
     </div>
