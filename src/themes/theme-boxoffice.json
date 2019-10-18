@@ -1,4 +1,7 @@
 {
   "btnColorPrimary": "#e4002b",
-  "btnColorSecondary": "#fff"
+  "btnColorSecondary": "#fff",
+  "btnPaddingLarge": "1rem",
+  "btnPaddingRegular": "0.5rem",
+  "btnPaddingSmall": "0.2rem"
 }
