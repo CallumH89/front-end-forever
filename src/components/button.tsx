@@ -1,7 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.button`
+interface Props {
+  inverted?: boolean
+}
+
+const Button = styled("button")<Props>`
   background: ${props => (props.inverted ? props.theme.btnColorPrimary : props.theme.btnColorSecondary)};
   border: 2px solid ${props => props.theme.btnColorPrimary};
   border-radius: 4px;
@@ -10,7 +13,7 @@ const Button = styled.button`
   display: inline-block;
   font-size: 1rem;
   margin: 0.5rem;
-  padding: ${props => (props.small ? props.theme.btnPaddingSmall : props.large ? props.theme.btnPaddingLarge : props.theme.btnPaddingRegular)} 0.5rem;
+  padding: 0.5rem;
   width: 200px;
   :hover {
     background: ${props => (props.inverted ? props.theme.btnColorSecondary : props.theme.btnColorPrimary)};
@@ -21,19 +24,8 @@ const Button = styled.button`
 Button.defaultProps = {
   theme: {
     btnColorPrimary: '#000',
-    btnColorSecondary: '#fff',
-    btnPaddingLarge: '1rem',
-    btnPaddingRegular: '0.5rem',
-    btnPaddingSmall: '0.2rem'
+    btnColorSecondary: '#fff'
   }
 };
 
-export default class Buttons extends React.Component {
-  render() {
-    return (
-      <Button inverted={this.props.inverted} small={this.props.small} large={this.props.large}>
-        Default
-      </Button>
-    );
-  }
-}
+export default Button;
