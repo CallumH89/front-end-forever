@@ -27,8 +27,8 @@ const ButtonGroup: React.FunctionComponent<{}> = () => {
       <Button>Button 1</Button>               
       <ThemeProvider theme={boxofficeTheme}>
         <>
-          <Button>Button 2</Button>               
-          <Button inverted>Button 3</Button>      
+          <Button small>Button 2</Button>               
+          <Button large inverted>Button 3</Button>      
         </>
       </ThemeProvider>
     </>
