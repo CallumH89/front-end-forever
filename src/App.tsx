@@ -21,12 +21,9 @@ const App: React.FunctionComponent<{}> = () => {
 const ButtonGroup: React.FunctionComponent<{}> = () => {
   return (
     <>
-      <Button>Button 1</Button>               
-      
-        <>
-          <Button small>Button 2</Button>               
-          <Button large inverted>Button 3</Button>      
-        </>
+      <Button text="Button 1" />
+      <Button small text="Button 2" />              
+      <Button large inverted text="Button 3" />    
     </>
   );
 }

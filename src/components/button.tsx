@@ -1,12 +1,14 @@
+import * as React from "react";
 import styled from 'styled-components';
 
-interface Props {
+interface ButtonProps {
   inverted?: boolean,
   small?: boolean,
-  large?: boolean
+  large?: boolean,
+  text?: string
 }
 
-const Button = styled("button")<Props>`
+const Button = styled("button")<ButtonProps>`
   background: ${props => (props.inverted ? props.theme.btnColorPrimary : props.theme.btnColorSecondary)};
   border: 2px solid ${props => props.theme.btnColorPrimary};
   border-radius: 4px;
@@ -32,4 +34,13 @@ Button.defaultProps = {
   }
 };
 
-export default Button;
+
+const Buttons: React.FunctionComponent<ButtonProps> = props => {
+  return (
+    <Button inverted={props.inverted} small={props.small} large={props.large}>
+      {props.text}
+    </Button>
+  );
+} 
+
+export default Buttons;
