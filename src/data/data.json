@@ -1,7 +1,5 @@
-import { filmData } from '../types';
-
-const filmList: filmData[] = [
-        {
+[
+    {
         "FilmId": 74569,
         "Title": "Abominable",
         "Cert": "PG",
@@ -1075,6 +1073,5 @@ const filmList: filmData[] = [
         "Order": 20,
         "IsCurrentlyBookable": true,
         "NewReleaseFlag": true
-    }];
-
-export default filmList;
+    }
+]

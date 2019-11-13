@@ -1,32 +1,16 @@
 import * as React from "react";
 import './scss/app.scss';
-import Button from './components/button';
+import List from './components/movie-list';
+import { filmData } from './types';
 
-
-const App: React.FunctionComponent<{}> = () => {
-  return (
-      <div className='app'>
-        <header className='app-header'>
-          <img alt='logo' className='logo' src='./boxoffice.svg' />
-        </header>
-        <div className='content'>
-          <h1>Components Library</h1>
-          <p>Hello!</p>
-          <ButtonGroup />
-        </div>
-      </div>
-  );
+interface AppProps {
+  data: filmData[]
 }
 
-const ButtonGroup: React.FunctionComponent<{}> = () => {
+const App: React.FunctionComponent<AppProps> = props => {
   return (
-    <>
-      <Button text="Button 1" />
-      <Button small text="Button 2" />              
-      <Button large inverted text="Button 3" />    
-    </>
+          <List data={props.data} />
   );
 }
-
 
 export default App;
