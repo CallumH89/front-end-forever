@@ -1,7 +1,5 @@
-import { filmData } from '../types';
-
-const filmList: filmData[] = [
-        {
+[
+    {
         "FilmId": 74569,
         "Title": "Abominable",
         "Cert": "PG",
@@ -35,7 +33,7 @@ const filmList: filmData[] = [
                 "Scheduleid": "392760",
                 "ExternalScheduleId": "38366",
                 "SoldOut": false,
-                "NotBookable": false,
+                "NotBookable": true,
                 "SessionExpired": false,
                 "CinemaId": 7928,
                 "ExternalCinemaId": "14",
@@ -169,7 +167,7 @@ const filmList: filmData[] = [
                 "StartDateTime": "2019-10-09 12:00:00 -06:00:00",
                 "Scheduleid": "392769",
                 "ExternalScheduleId": "38375",
-                "SoldOut": false,
+                "SoldOut": true,
                 "NotBookable": false,
                 "SessionExpired": false,
                 "CinemaId": 7928,
@@ -253,7 +251,7 @@ const filmList: filmData[] = [
                 "StartDateTime": "2019-10-09 23:15:00 -06:00:00",
                 "Scheduleid": "392772",
                 "ExternalScheduleId": "38378",
-                "SoldOut": false,
+                "SoldOut": true,
                 "NotBookable": false,
                 "SessionExpired": false,
                 "CinemaId": 7928,
@@ -489,7 +487,7 @@ const filmList: filmData[] = [
                 "StartDateTime": "2019-10-09 14:00:00 -06:00:00",
                 "Scheduleid": "392765",
                 "ExternalScheduleId": "38371",
-                "SoldOut": false,
+                "SoldOut": true,
                 "NotBookable": false,
                 "SessionExpired": false,
                 "CinemaId": 7928,
@@ -517,7 +515,7 @@ const filmList: filmData[] = [
                 "StartDateTime": "2019-10-09 17:15:00 -06:00:00",
                 "Scheduleid": "392766",
                 "ExternalScheduleId": "38372",
-                "SoldOut": false,
+                "SoldOut": true,
                 "NotBookable": false,
                 "SessionExpired": false,
                 "CinemaId": 7928,
@@ -1075,6 +1073,5 @@ const filmList: filmData[] = [
         "Order": 20,
         "IsCurrentlyBookable": true,
         "NewReleaseFlag": true
-    }];
-
-export default filmList;
+    }
+]
