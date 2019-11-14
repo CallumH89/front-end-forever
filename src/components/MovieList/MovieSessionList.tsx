@@ -1,22 +1,11 @@
 import * as React from "react";
 import styled from 'styled-components';
-import {filmData, Sessions, Times} from '../types';
+import {Times} from '../../types';
 import { darken } from 'polished'
 
-interface ListingProps {
-    data: filmData[]
-}
-
-interface itemProps {
-    title: string,
-    filmId: number,
-    poster?: string,
-    sessions: Sessions[]
-}
-
 interface SessionListProps {
-    date: string,
-    times?: Times[]
+  date: string,
+  times?: Times[]
 }
 
 interface SingleSessionProps {
@@ -24,23 +13,6 @@ interface SingleSessionProps {
   notBookable: boolean,
   sessionExpired: boolean
 }
-
-const Container = styled.div`
-  margin:2rem auto;
-  width:600px; 
-  display:block;
-`;
-
-const SingleItem = styled.div`
-  grid-gap: 1rem;
-  grid-template-columns: 200px auto;
-`;
-
-const Poster = styled.img`
-  border-radius: 4px;
-  width:100%;
-  display:block;
-  margin-bottom:0.5rem;`;
 
 
 const SingleSession = styled("button")<SingleSessionProps>`
@@ -62,7 +34,7 @@ SingleSession.defaultProps = {
   }
 };
 
-const SessionList: React.FunctionComponent<SessionListProps> = props => {
+const MovieSessionList: React.FunctionComponent<SessionListProps> = props => {
   return (
     <div>
       <h4>{props.date}</h4>
@@ -84,41 +56,5 @@ const SessionList: React.FunctionComponent<SessionListProps> = props => {
 }
 
 
-const Item: React.FunctionComponent<itemProps> = props => {
-    return (
-        <SingleItem className="grid mb-2">
-          <div>
-            <Poster src={props.poster} alt={props.title} />
-          </div>
-          <div>
-            <h2>{props.title}</h2>
-            {props.sessions.map((sessionList, i) => (
-                <SessionList
-                  key={i}
-                  date={sessionList.DisplayDate}
-                  times={sessionList.Times}
-                  />
-            ))}
-          </div>
-          </SingleItem>
-      );
-}
 
-const List: React.FunctionComponent<ListingProps> = props => {
-
-  return (
-    <Container>
-      {props.data.map((singleFilm, i) => (
-           <Item
-            key={i}
-            title={singleFilm.Title}
-            poster={singleFilm.MediaItems.Poster}
-            sessions={singleFilm.Sessions}
-            filmId={singleFilm.FilmId}/>
-      ))}
-    </Container>
-  );
-} 
-
-
-export default List;
+export default MovieSessionList;
