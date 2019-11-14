@@ -1,29 +1,27 @@
-export default interface filmData {
-    [index: number]: {
-        FilmId: number,
-        Title: string,
-        Cert: string,
-        Img: string,
-        Trailer: string,
-        ReleaseDate: string,
-        RunTime: string,
-        Synopsis: string,
-        Teaser: string,
-        Cast: string,
-        Director: string,
-        Writer: string,
-        FriendlyName: string,
-        Experiences: Experience[],
-        ComingSoonFlag: boolean,
-        Sessions: Sessions[],
-        DisplayTitle: string,
-        FilmGroup?: string,
-        FirstSessionTime: string,
-        MediaItems: MediaItems,
-        Order: number,
-        IsCurrentlyBookable: boolean,
-        NewReleaseFlag: boolean
-    }
+export interface filmData {
+    FilmId: number,
+    Title: string,
+    Cert: string,
+    Img: string,
+    Trailer: string,
+    ReleaseDate: string,
+    RunTime: string,
+    Synopsis: string,
+    Teaser: string,
+    Cast: string,
+    Director: string,
+    Writer: string,
+    FriendlyName: string,
+    Experiences: Experience[],
+    ComingSoonFlag: boolean,
+    Sessions: Sessions[],
+    DisplayTitle: string,
+    FilmGroup?: string,
+    FirstSessionTime: string,
+    MediaItems: MediaItems,
+    Order: number,
+    IsCurrentlyBookable: boolean,
+    NewReleaseFlag: boolean
 }
 
 export interface Experience {
