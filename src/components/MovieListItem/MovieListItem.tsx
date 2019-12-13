@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Sessions } from '../../types';
-import MovieSessionList from './MovieSessionList';
-import MoviePoster from './MoviePoster';
+import MovieSessionList from '../MovieSessionList/MovieSessionList';
+import MoviePoster from '../MoviePoster/MoviePoster';
 
 interface itemProps {
   title: string;

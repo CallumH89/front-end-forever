@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { filmData } from '../../types';
-import MovieListItem from './MovieListItem';
+import MovieListItem from '../MovieListItem/MovieListItem';
 
 interface ListingProps {
   data: filmData[];
