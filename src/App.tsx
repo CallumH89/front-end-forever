@@ -1,7 +1,7 @@
-import * as React from "react";
-import "./scss/app.scss";
-import { MovieList } from "./components";
-import { filmData } from "./types";
+import * as React from 'react';
+import './scss/app.scss';
+import { MovieList } from './components';
+import { filmData } from './types';
 
 interface AppProps {
   data: filmData[];
