@@ -12,7 +12,8 @@ interface SessionListProps {
 
 
 const SessionsContainer = styled('div')<SessionListProps>`
-margin-top:1rem;
+margin-top:auto;
+padding-top:1rem;
  & ${Button} {
    margin-top:1rem;
  }
