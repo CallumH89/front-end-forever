@@ -10,3 +10,21 @@ p {
   font-size: 1rem;
   margin-top: 0.2rem;
 }
+
+h2 {
+  margin-top: 1rem;
+  font-size:1.6rem;
+  margin-bottom:1rem;
+}
+
+h3 {
+  margin-top: 1rem;
+  font-size:1.2rem;
+  margin-bottom:1rem;
+}
+
+.ta {
+  &__center {
+    text-align:center;
+  }
+}

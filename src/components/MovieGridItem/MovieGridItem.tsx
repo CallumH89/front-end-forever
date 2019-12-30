@@ -1,9 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Sessions } from '../../types';
-import MovieSessionList from '../MovieSessionList/MovieSessionList';
+import MovieGridSessionList from '../MovieSessionList/MovieGridSessionList';
 import {MoviePoster, MoviePosterContainer} from '../MoviePoster/MoviePoster';
 import {MoviePosterOverlay} from '../MoviePoster/MoviePosterOverlay';
+import {MovieDetails} from '../MovieDetails/MovieDetails'
 
 interface itemProps {
   title: string;
@@ -13,19 +14,27 @@ interface itemProps {
   filmId: number;
   poster?: string;
   hasOverlay?: boolean;
+  hasSynopsis?: boolean;
+  hasDetails?: boolean;
+  isCentered?: boolean;
+  hasTrailerIcon?: boolean;
   showSessions?: boolean;
   sessions: Sessions[];
 }
 
 const SingleItem = styled.div`
-  grid-gap: 1rem;
-  grid-template-columns: 310px auto;
+width:100%;
+display:flex;
+flex-direction:column;
+height:100%;
+`;
+export const MovieDetailsContainer = styled.div`
+margin-top: 1rem;
 `;
 
-
-const MovieListItem: React.FunctionComponent<itemProps> = props => {
+const MovieGridItem: React.FunctionComponent<itemProps> = props => {
   return (
-    <SingleItem className='grid mb-2'>
+    <SingleItem>
       <MoviePosterContainer>
         <MoviePoster src={props.poster} alt={props.title} />
         {props.hasOverlay &&
@@ -33,24 +42,33 @@ const MovieListItem: React.FunctionComponent<itemProps> = props => {
             hasSynopsis={true} 
             isTrailerOnly={false} 
             isCentered={true}
+            synopsis={props.synopsis} 
             title={props.title} 
             rating={props.rating} 
             runtime={props.runtime} />
         }
       </MoviePosterContainer>
-      <div>
-        <h2>{props.title}</h2>
+      <MovieDetailsContainer>
+      {props.hasDetails &&
+        <MovieDetails 
+          hasSynopsis={props.hasSynopsis} 
+          synopsis={props.synopsis} 
+          hasTrailerIcon={props.hasTrailerIcon} 
+          isCentered={props.isCentered}
+          title={props.title}
+          rating={props.rating}
+          runtime={props.runtime} /> }
+      </MovieDetailsContainer>
         {props.showSessions &&
           props.sessions.map((sessionList, i) => (
-          <MovieSessionList
+          <MovieGridSessionList
             key={i}
             date={sessionList.DisplayDate}
             times={sessionList.Times}
           />
         ))}
-      </div>
     </SingleItem>
   );
 };
 
-export default MovieListItem;
+export default MovieGridItem;

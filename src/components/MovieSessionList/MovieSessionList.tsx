@@ -1,49 +1,12 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import { Times } from '../../types';
-import { darken } from 'polished';
+import { SingleSession, SessionExperiences, SessionTime } from '../SingleSession/SingleSession';
 
 interface SessionListProps {
   date: string;
   times?: Times[];
 }
 
-interface SingleSessionProps {
-  soldOut: boolean;
-  notBookable: boolean;
-  sessionExpired: boolean;
-}
-
-const SingleSession = styled('button')<SingleSessionProps>`
-  border-radius: 5px;
-  border: transparent;
-  background: ${props =>
-    props.notBookable || props.sessionExpired || props.soldOut
-      ? props.theme.btnColorSecondary
-      : props.theme.btnColorPrimary};
-  color: ${props =>
-    props.notBookable || props.sessionExpired || props.soldOut
-      ? props.theme.btnColorPrimary
-      : props.theme.btnColorSecondary};
-  padding: 0.5rem;
-  cursor: ${props =>
-    props.notBookable || props.sessionExpired || props.soldOut
-      ? ''
-      : 'pointer'};
-  :hover {
-    background: ${props =>
-      props.notBookable || props.sessionExpired || props.soldOut
-        ? ''
-        : darken(0.1, props.theme.btnColorPrimary)};
-  }
-`;
-
-SingleSession.defaultProps = {
-  theme: {
-    btnColorPrimary: '#000',
-    btnColorSecondary: '#fff'
-  }
-};
 
 const MovieSessionList: React.FunctionComponent<SessionListProps> = props => {
   return (
@@ -59,7 +22,15 @@ const MovieSessionList: React.FunctionComponent<SessionListProps> = props => {
               notBookable={singleSession.NotBookable}
               sessionExpired={singleSession.SessionExpired}
             >
-              {singleSession.StartTime}
+              <SessionTime>{singleSession.StartTime}</SessionTime>
+              {singleSession.Experience && 
+              singleSession.Experience.length > 0 &&
+                <SessionExperiences>
+                  {singleSession.Experience.map((experience, i) => (
+                    <span>{experience.ExternalId}</span>
+                  ))}
+                </SessionExperiences>
+              }
             </SingleSession>
           ))}
       </div>

@@ -1,0 +1,15 @@
+[{
+    "Type": "TextBlock",
+    "Content": {
+        "Title": "Block 1",
+        "Subtitle": "Subtitle 1",
+        "Text": "This is the text"
+        }
+    },{
+    "Type": "TextBlock",
+    "Content": {
+        "Title": "Block 2",
+        "Subtitle": "Subtitle 2",
+        "Text": "This is the text"
+    }
+}]

@@ -1,10 +1,22 @@
 import styled from 'styled-components';
+import {MoviePosterOverlayContainer, MoviePosterOverlayTrailer} from './MoviePosterOverlay'
 
-const MoviePoster = styled.img`
-  border-radius: 4px;
+export const MoviePosterContainer = styled.div`
+  position:relative;
+  overflow:hidden;
+  border-radius: 5px;
+  height: auto;
   width: 100%;
-  display: block;
-  margin-bottom: 0.5rem;
+  
+  &:hover ${MoviePosterOverlayContainer},
+  &:hover ${MoviePosterOverlayTrailer} {
+    opacity: 1;
+  }
 `;
 
-export default MoviePoster;
+export const MoviePoster = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+`;
