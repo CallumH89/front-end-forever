@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import "../scss/app.scss";
 import {MoviePoster, MoviePosterContainer} from '../components/MoviePoster/MoviePoster';
 import {MoviePosterOverlay} from '../components/MoviePoster/MoviePosterOverlay';
@@ -12,8 +13,12 @@ export default {
   decorators: [withKnobs, Centered]
 }; 
 
+const Container = styled.div`
+  width:300px;
+  margin: 0 auto;
+`;
 
-export const PosterWithTrailerOverlay = () => <MoviePosterContainer>
+export const PosterWithTrailerOverlay = () => <Container><MoviePosterContainer>
 <MoviePoster src={data[2].Img} alt={data[2].Title} />
 {boolean("Enable overlay on hover", true) &&
   <MoviePosterOverlay 
@@ -26,8 +31,9 @@ export const PosterWithTrailerOverlay = () => <MoviePosterContainer>
     runtime={data[2].RunTime} />
 }
 </MoviePosterContainer>
+</Container>
 
-export const PosterWithFullOverlay = () => <MoviePosterContainer>
+export const PosterWithFullOverlay = () => <Container><MoviePosterContainer>
 <MoviePoster src={data[1].Img} alt={data[1].Title} />
 {boolean("Enable overlay on hover", true) &&
   <MoviePosterOverlay 
@@ -40,3 +46,4 @@ export const PosterWithFullOverlay = () => <MoviePosterContainer>
     runtime={data[1].RunTime} />
 }
 </MoviePosterContainer>
+</Container>

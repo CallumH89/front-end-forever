@@ -14,6 +14,7 @@ interface detailsProps {
 }
 
 export const MovieDetailsContainer = styled("div")<detailsProps>`
+  position:relative;
   ${props =>
     props.hasTrailerIcon && 
     `display: grid;
@@ -26,7 +27,6 @@ export const MovieDetailsContainer = styled("div")<detailsProps>`
 `;
 
 export const MovieSynopsis = styled.div`
-  margin-top:1rem;
 `;
 
 export const MovieInfo = styled.div`
@@ -54,7 +54,9 @@ export const MovieDetails: React.FunctionComponent<detailsProps> = props => {
           <P>{props.rating}</P>
         </MovieInfo>
         {props.hasSynopsis && 
-          <P>{props.synopsis}</P>
+          <MovieSynopsis>
+            <P>{props.synopsis}</P>
+          </MovieSynopsis>
         }
       </div>
       {props.hasTrailerIcon && 

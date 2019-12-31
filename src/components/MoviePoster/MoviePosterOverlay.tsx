@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import trailerIcon from '../../libs/svg/icon-trailer.svg';
 import arrowIcon from '../../libs/svg/icon-arrow.svg';
-import {MovieInfo, MovieDetails} from '../MovieDetails/MovieDetails';
+import {MovieInfo, MovieDetails, MovieSynopsis} from '../MovieDetails/MovieDetails';
 import {H4, P} from '../Typography/Typography';
 import { TrailerIcon } from '../TrailerIcon/TrailerIcon';
 import { Button, Buttons } from '../Button/Button';
@@ -24,11 +24,18 @@ export const MoviePosterOverlayContainer = styled.div`
   & ${H4} {
     color:#fff;
   }
+
+  & ${MovieSynopsis} {
+    max-height:150px;
+    overflow:hidden;
+  }
+
   & ${MovieInfo} {
     & ${P} + ${P} {
       border-left:1px solid #ffffff;
     }
   }
+
   & ${Button} {
     margin-top:1rem;
   }
