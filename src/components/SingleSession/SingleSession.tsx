@@ -8,7 +8,7 @@ interface SingleSessionProps {
 }
 
 export const SingleSession = styled('button')<SingleSessionProps>`
-width:100%;
+  width:100%;
   border-radius: 0px;
   border: 1px solid ${props => props.theme.btnBorderColorPrimary};
   background: ${props =>
@@ -53,7 +53,7 @@ export const SessionTime = styled.div`
 
 export const SessionExperiences = styled.div`
 margin-top:0.4rem;
-font-size:0.6rem;
+font-size:0.625rem;
 & span {
   position:relative; 
   & + span {

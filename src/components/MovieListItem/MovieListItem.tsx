@@ -4,6 +4,7 @@ import { Sessions } from '../../types';
 import MovieSessionList from '../MovieSessionList/MovieSessionList';
 import {MoviePoster, MoviePosterContainer} from '../MoviePoster/MoviePoster';
 import {MoviePosterOverlay} from '../MoviePoster/MoviePosterOverlay';
+import {H4} from '../Typography/Typography';
 
 interface itemProps {
   title: string;
@@ -20,6 +21,11 @@ interface itemProps {
 const SingleItem = styled.div`
   grid-gap: 1rem;
   grid-template-columns: 310px auto;
+
+  & ${H4} {
+    margin-top:0.5rem;
+    margin-bottom:1rem;
+  }
 `;
 
 
@@ -39,7 +45,7 @@ const MovieListItem: React.FunctionComponent<itemProps> = props => {
         }
       </MoviePosterContainer>
       <div>
-        <h2>{props.title}</h2>
+        <H4>{props.title}</H4>
         {props.showSessions &&
           props.sessions.map((sessionList, i) => (
           <MovieSessionList

@@ -2,7 +2,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import trailerIcon from '../../libs/svg/icon-trailer.svg';
 import arrowIcon from '../../libs/svg/icon-arrow.svg';
-import {MovieTitle, MovieInfo, MovieSynopsis, MovieDetails} from '../MovieDetails/MovieDetails';
+import {MovieInfo, MovieDetails} from '../MovieDetails/MovieDetails';
+import {H4, P} from '../Typography/Typography';
 import { TrailerIcon } from '../TrailerIcon/TrailerIcon';
 import { Button, Buttons } from '../Button/Button';
 
@@ -19,13 +20,12 @@ export const MoviePosterOverlayContainer = styled.div`
   transition:0.2s;
   display:flex;
   flex-direction:column;
-  & ${MovieTitle},
-  & ${MovieSynopsis},
-  & ${MovieInfo} {
+  & ${P},
+  & ${H4} {
     color:#fff;
   }
   & ${MovieInfo} {
-    & span + span {
+    & ${P} + ${P} {
       border-left:1px solid #ffffff;
     }
   }
