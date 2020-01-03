@@ -2,26 +2,98 @@ import * as React from "react";
 import styled from 'styled-components';
 
 interface ButtonProps {
+  hasIcon?: boolean,
+  iconSrc?: string,
   inverted?: boolean,
+  rounded?: boolean,
+  outline?: boolean,
   small?: boolean,
   large?: boolean,
+  fullWidth?: boolean,
   text?: string
 }
 
-const Button = styled("button")<ButtonProps>`
-  background: ${props => (props.inverted ? props.theme.btnColorPrimary : props.theme.btnColorSecondary)};
-  border: 2px solid ${props => props.theme.btnColorPrimary};
-  border-radius: 4px;
-  color: ${props => (props.inverted ? props.theme.btnColorSecondary : props.theme.btnColorPrimary)};
+export const Button = styled("button")<ButtonProps>`
+  position:relative;
+  width: ${props => (props.fullWidth ? '100%' : props.theme.btnWidth)};
   cursor: pointer;
   display: inline-block;
+  font-weight:bold;
   font-size: 1rem;
-  margin: 0.5rem;
-  padding: ${props => (props.small ? props.theme.btnPaddingSmall : props.large ? props.theme.btnPaddingLarge : props.theme.btnPaddingRegular)} 0.5rem;  width: 200px;
-  :hover {
-    background: ${props => (props.inverted ? props.theme.btnColorSecondary : props.theme.btnColorPrimary)};
-    color: ${props => (props.inverted ? props.theme.btnColorPrimary : props.theme.btnColorSecondary)};
-  }
+  transition:0.2s;
+  padding-left: 1rem;
+  padding-right:  ${props => (props.hasIcon ? '32px' : '1rem')};
+
+  ${props => (props.small && ` 
+    padding-top: ${props.theme.btnPaddingSmall};
+    padding-bottom: ${props.theme.btnPaddingSmall};
+  `)}
+
+  ${props => (props.large && ` 
+    padding-top: ${props.theme.btnPaddingLarge};
+    padding-bottom: ${props.theme.btnPaddingLarge};
+  `)}
+  
+
+  ${props => (!props.large && !props.small && ` 
+    padding-top: ${props.theme.btnPaddingRegular};
+    padding-bottom: ${props.theme.btnPaddingRegular};
+  `)}
+
+
+
+  ${props => (props.rounded && ` 
+  border-radius: 50px;
+  `)}
+
+  ${props => (props.outline && ` 
+    background: transparent;
+    border: 2px solid ${props.theme.btnColorSecondary}
+    color: ${props.theme.btnColorSecondary}
+
+    :hover {
+      background: ${props.theme.btnColorPrimary}
+      border: 2px solid ${props.theme.btnColorPrimary}
+    }
+  `)}
+  
+  ${props => (props.inverted && ` 
+    color: ${props.theme.btnColorPrimary}
+    background: ${props.theme.btnColorSecondary};
+    border: 2px solid transparent;
+    
+    :hover {
+      background: ${props.theme.btnColorPrimary};
+      color: ${props.theme.btnColorSecondary};
+    }
+  `)}
+
+  
+  ${props => (!props.inverted && !props.outline && ` 
+    background: ${props.theme.btnColorPrimary};
+    color: ${props.theme.btnColorSecondary};
+    border: 2px solid transparent;
+
+    :hover {
+      background: ${props.theme.btnColorSecondary};
+      color: ${props.theme.btnColorPrimary};
+    }
+  `)}
+
+  ${props => (props.hasIcon && ` 
+   text-align:left;
+   ::after {
+     position:absolute;
+     top:calc(50% - 13px);
+     right:1rem;
+     content: " ";
+     height:26px;
+     width:26px;
+     background-image: url(${props.iconSrc});
+     background-position:center;
+     background-size:contain;
+   }`
+  )}
 `;
 
 Button.defaultProps = {
@@ -30,17 +102,16 @@ Button.defaultProps = {
     btnColorSecondary: '#fff',
     btnPaddingLarge: '1rem',
     btnPaddingRegular: '0.5rem',
-    btnPaddingSmall: '0.2rem'
+    btnPaddingSmall: '0.2rem',
+    btnWidth: '200px'
   }
 };
 
 
-const Buttons: React.FunctionComponent<ButtonProps> = props => {
+export const Buttons: React.FunctionComponent<ButtonProps> = props => {
   return (
-    <Button inverted={props.inverted} small={props.small} large={props.large}>
+    <Button rounded={props.rounded} outline={props.outline} inverted={props.inverted} fullWidth={props.fullWidth} hasIcon={props.hasIcon} iconSrc={props.iconSrc} small={props.small} large={props.large}>
       {props.text}
     </Button>
   );
-} 
-
-export default Buttons;
+}
