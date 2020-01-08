@@ -22,7 +22,7 @@ padding-top:1rem;
 
 const MovieGridSessionList: React.FunctionComponent<SessionListProps> = props => {
   return (
-    <SessionsContainer>
+    <SessionsContainer data-testid="movie-sessions">
       <Grid container spacing={2}>
         {props.times &&
           props.times.length > 0 &&
