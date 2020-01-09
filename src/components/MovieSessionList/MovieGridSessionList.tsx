@@ -10,7 +10,6 @@ interface SessionListProps {
   times?: Times[];
 }
 
-
 const SessionsContainer = styled('div')<SessionListProps>`
 margin-top:auto;
 padding-top:1rem;
@@ -22,12 +21,12 @@ padding-top:1rem;
 
 const MovieGridSessionList: React.FunctionComponent<SessionListProps> = props => {
   return (
-    <SessionsContainer>
+    <SessionsContainer data-testid="movie-sessions">
       <Grid container spacing={2}>
         {props.times &&
           props.times.length > 0 &&
           props.times.slice(0, 6).map((singleSession, i) => ( 
-            <Grid item xs={4}>
+            <Grid key={i} item xs={4}>
               <SingleSession
                 key={i}
                 soldOut={singleSession.SoldOut}
@@ -38,8 +37,8 @@ const MovieGridSessionList: React.FunctionComponent<SessionListProps> = props =>
                 {singleSession.Experience && 
                 singleSession.Experience.length > 0 &&
                   <SessionExperiences>
-                    {singleSession.Experience.map((experience, i) => (
-                      <span>{experience.ExternalId}</span>
+                    {singleSession.Experience.map((experience, y) => (
+                      <span key={y}>{experience.ExternalId}</span>
                     ))}
                   </SessionExperiences>
                 }
@@ -50,6 +49,6 @@ const MovieGridSessionList: React.FunctionComponent<SessionListProps> = props =>
       <Buttons fullWidth={true} text={"More Showtimes"} />
     </SessionsContainer>
   );
-};
+}; 
 
 export default MovieGridSessionList;
