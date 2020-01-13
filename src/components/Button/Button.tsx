@@ -1,19 +1,19 @@
-import * as React from "react";
+import * as React from 'react';
 import styled from 'styled-components';
 
 interface ButtonProps {
-  hasIcon?: boolean,
-  iconSrc?: string,
-  inverted?: boolean,
-  rounded?: boolean,
-  outline?: boolean,
-  small?: boolean,
-  large?: boolean,
-  fullWidth?: boolean,
-  text?: string
+  hasIcon?: boolean;
+  iconSrc?: string;
+  inverted?: boolean;
+  rounded?: boolean;
+  outline?: boolean;
+  small?: boolean;
+  large?: boolean;
+  fullWidth?: boolean;
+  text?: string;
 }
 
-export const Button = styled("button")<ButtonProps>`
+export const Button = styled('button')<ButtonProps>`
   position:relative;
   width: ${props => (props.fullWidth ? '100%' : props.theme.btnWidth)};
   cursor: pointer;
@@ -24,29 +24,40 @@ export const Button = styled("button")<ButtonProps>`
   padding-left: 1rem;
   padding-right:  ${props => (props.hasIcon ? '32px' : '1rem')};
 
-  ${props => (props.small && ` 
+  ${props =>
+    props.small &&
+    ` 
     padding-top: ${props.theme.btnPaddingSmall};
     padding-bottom: ${props.theme.btnPaddingSmall};
-  `)}
+  `}
 
-  ${props => (props.large && ` 
+  ${props =>
+    props.large &&
+    ` 
     padding-top: ${props.theme.btnPaddingLarge};
     padding-bottom: ${props.theme.btnPaddingLarge};
-  `)}
+  `}
   
 
-  ${props => (!props.large && !props.small && ` 
+  ${props =>
+    !props.large &&
+    !props.small &&
+    ` 
     padding-top: ${props.theme.btnPaddingRegular};
     padding-bottom: ${props.theme.btnPaddingRegular};
-  `)}
+  `}
 
 
 
-  ${props => (props.rounded && ` 
+  ${props =>
+    props.rounded &&
+    ` 
   border-radius: 50px;
-  `)}
+  `}
 
-  ${props => (props.outline && ` 
+  ${props =>
+    props.outline &&
+    ` 
     background: transparent;
     border: 2px solid ${props.theme.btnColorSecondary}
     color: ${props.theme.btnColorSecondary}
@@ -55,9 +66,11 @@ export const Button = styled("button")<ButtonProps>`
       background: ${props.theme.btnColorPrimary}
       border: 2px solid ${props.theme.btnColorPrimary}
     }
-  `)}
+  `}
   
-  ${props => (props.inverted && ` 
+  ${props =>
+    props.inverted &&
+    ` 
     color: ${props.theme.btnColorPrimary}
     background: ${props.theme.btnColorSecondary};
     border: 2px solid transparent;
@@ -66,10 +79,13 @@ export const Button = styled("button")<ButtonProps>`
       background: ${props.theme.btnColorPrimary};
       color: ${props.theme.btnColorSecondary};
     }
-  `)}
+  `}
 
   
-  ${props => (!props.inverted && !props.outline && ` 
+  ${props =>
+    !props.inverted &&
+    !props.outline &&
+    ` 
     background: ${props.theme.btnColorPrimary};
     color: ${props.theme.btnColorSecondary};
     border: 2px solid transparent;
@@ -78,9 +94,11 @@ export const Button = styled("button")<ButtonProps>`
       background: ${props.theme.btnColorSecondary};
       color: ${props.theme.btnColorPrimary};
     }
-  `)}
+  `}
 
-  ${props => (props.hasIcon && ` 
+  ${props =>
+    props.hasIcon &&
+    ` 
    text-align:left;
    ::after {
      position:absolute;
@@ -92,8 +110,7 @@ export const Button = styled("button")<ButtonProps>`
      background-image: url(${props.iconSrc});
      background-position:center;
      background-size:contain;
-   }`
-  )}
+   }`}
 `;
 
 Button.defaultProps = {
@@ -107,11 +124,19 @@ Button.defaultProps = {
   }
 };
 
-
 export const Buttons: React.FunctionComponent<ButtonProps> = props => {
   return (
-    <Button rounded={props.rounded} outline={props.outline} inverted={props.inverted} fullWidth={props.fullWidth} hasIcon={props.hasIcon} iconSrc={props.iconSrc} small={props.small} large={props.large}>
+    <Button
+      rounded={props.rounded}
+      outline={props.outline}
+      inverted={props.inverted}
+      fullWidth={props.fullWidth}
+      hasIcon={props.hasIcon}
+      iconSrc={props.iconSrc}
+      small={props.small}
+      large={props.large}
+    >
       {props.text}
     </Button>
   );
-}
+};
