@@ -20,6 +20,7 @@ interface itemProps {
   hasTrailerIcon?: boolean;
   showSessions?: boolean;
   sessions: Sessions[];
+  sessionsPerRow?: any;
 }
 
 const SingleItem = styled.div`
@@ -63,6 +64,7 @@ const MovieGridItem: React.FunctionComponent<itemProps> = props => {
           props.sessions.map((sessionList, i) => (
           <MovieGridSessionList
             key={i}
+            sessionsPerRow={props.sessionsPerRow}
             date={sessionList.DisplayDate}
             times={sessionList.Times}
           />

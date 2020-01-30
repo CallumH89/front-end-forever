@@ -1,14 +1,16 @@
 import * as React from 'react';
 import './scss/app.scss';
-import { MovieList } from './components';
+
+import { MovieCarousel } from './components/MovieCarousel/MovieCarousel';
 import { filmData } from './types';
 
 interface AppProps {
   data: filmData[];
+  settings: {};
 }
 
 const App: React.FunctionComponent<AppProps> = props => {
-  return <MovieList data={props.data} />;
+  return <MovieCarousel settings={props.settings} data={props.data} />;
 };
 
 export default App;
