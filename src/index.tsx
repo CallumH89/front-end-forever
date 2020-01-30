@@ -12,8 +12,13 @@ import "./scss/app.scss";
 const theme = boxofficeTheme;
 //define the movielist data and type of data to ensure it has correct values
 const movieList: filmData[] = data;
-
-ReactDOM.render(<ThemeProvider theme={theme}><App data={movieList} /></ThemeProvider>, document.getElementById('root'));
+const flickityOptions = {
+    initialIndex: 2,
+    wrapAround: true,
+    freeScroll: true,
+    pageDots: true
+  }
+ReactDOM.render(<ThemeProvider theme={theme}><App data={movieList} settings={flickityOptions} /></ThemeProvider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

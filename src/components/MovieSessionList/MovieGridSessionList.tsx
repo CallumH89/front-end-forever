@@ -8,6 +8,7 @@ import { Grid } from '@material-ui/core';
 interface SessionListProps {
   date?: string;
   times?: Times[];
+  sessionsPerRow?: any;
 }
 
 const SessionsContainer = styled('div')<SessionListProps>`
@@ -26,7 +27,7 @@ const MovieGridSessionList: React.FunctionComponent<SessionListProps> = props =>
         {props.times &&
           props.times.length > 0 &&
           props.times.slice(0, 6).map((singleSession, i) => ( 
-            <Grid key={i} item xs={4}>
+            <Grid key={i} item xs={props.sessionsPerRow}>
               <SingleSession
                 key={i}
                 soldOut={singleSession.SoldOut}

@@ -2,7 +2,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { filmData } from '../../types';
 import MovieGridItem from '../MovieGridItem/MovieGridItem';
-import { Grid } from '@material-ui/core';
+import Flickity from 'react-flickity-component'
+import '../../scss/flickity.min.css';
 
 interface ListingProps {
   showSessions?: boolean;
@@ -10,10 +11,12 @@ interface ListingProps {
   isCentered?: boolean;
   hasDetails?: boolean;
   hasTrailerIcon?: boolean;
+  sessionsPerRow?: any;
   hasOverlay?: boolean;
   data: filmData[];
-  sessionsPerRow?: any;
+  settings?: {}
 }
+
 
 const Container = styled.div`
   width:90%;
@@ -21,25 +24,29 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const MovieList: React.FunctionComponent<ListingProps> = props => {
+const Slide = styled.div`
+  width:290px;
+  margin-left:1rem;
+  margin-right:1rem;
+`;
+
+export const MovieCarousel: React.FunctionComponent<ListingProps> = props => {
+ 
   return (
     <Container>
-      <Grid
-      container
-      direction="row"
-      spacing={5}
+      <Flickity
+        className={'carousel'} // default ''
+        elementType={'div'} // default 'div'
+        options={props.settings} // takes flickity options {}
+        disableImagesLoaded={false} // default false
+        reloadOnUpdate // default false
+        static // default false
       >
         {props.data.map((singleFilm, i) => (
-          <Grid
-            item
-            xl={3}
-            lg={3}
-            md={4}
-            sm={6}
-            xs={props.showSessions ? 12 : 6}
-            >
+          <Slide key={i}>
             <MovieGridItem
-              key={i}
+              key={`${singleFilm.Title}${i}`}
+              sessionsPerRow={props.sessionsPerRow}
               title={singleFilm.Title}
               rating={singleFilm.Cert}
               runtime={singleFilm.RunTime}
@@ -51,15 +58,12 @@ const MovieList: React.FunctionComponent<ListingProps> = props => {
               poster={singleFilm.MediaItems.Poster}
               sessions={singleFilm.Sessions}
               showSessions={props.showSessions}
-              hasOverlay={props.hasOverlay}
-              sessionsPerRow={props.sessionsPerRow}
+              hasOverlay={true}
               filmId={singleFilm.FilmId}
             />
-          </Grid>
+          </Slide>
         ))}
-      </Grid>
+      </Flickity>
     </Container>
   );
 };
-
-export default MovieList;

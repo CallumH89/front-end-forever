@@ -20,16 +20,28 @@ const iconSources = {
 const defaultValue = iconSources.trailer;
 const groupId = 'Icons';
 
+
+
+const typeLabel = 'Button Type';
+const typeValues = {
+  Small: "Small",
+  Large: "Large",
+  Rounded: "Rounded"
+};
+const typeValue = typeValues.Small;
+const typeGroup = 'Button Type';
+
+
 export const Button = () => (
   <Btn
-    rounded={boolean('Rounded', false)}
+    rounded={radios(typeLabel, typeValues, typeValue, typeGroup)==="Rounded"}
     outline={boolean('Outline', false)}
     inverted={boolean('Inverted', false)}
     fullWidth={boolean('Full Width', false)}
     hasIcon={boolean('Has Icon', false)}
     iconSrc={radios(label, iconSources, defaultValue, groupId)}
-    small={boolean('Rounded', false)}
-    large={boolean('Rounded', false)}
+    small={radios(typeLabel, typeValues, typeValue, typeGroup)==="Small"}
+    large={radios(typeLabel, typeValues, typeValue, typeGroup)==="Large"}
   >
     Click Me
   </Btn>

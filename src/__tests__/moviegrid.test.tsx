@@ -20,6 +20,7 @@ describe('Movie Grid Item', () => {
             hasOverlay: false,
             showSessions: true,
             hasTrailerIcon: false,
+            sessionsPerRow: 4, //3 = 4, 4 = 3, 6 = 2 (columns each should be/12)
             filmId: data[0].FilmId
         };
 
@@ -46,6 +47,7 @@ describe('Movie Grid Item', () => {
             hasOverlay: false,
             showSessions: false,
             hasTrailerIcon: false,
+            sessionsPerRow: 4, //3 = 4, 4 = 3, 6 = 2 (columns each should be/12)
             filmId: data[0].FilmId
         };
 

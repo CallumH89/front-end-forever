@@ -116,7 +116,7 @@ export const Button = styled('button')<ButtonProps>`
 Button.defaultProps = {
   theme: {
     btnColorPrimary: '#000',
-    btnColorSecondary: '#fff',
+    btnColorSecondary: '#ccc',
     btnPaddingLarge: '1rem',
     btnPaddingRegular: '0.5rem',
     btnPaddingSmall: '0.2rem',
