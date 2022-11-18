@@ -14,7 +14,7 @@
     "react": "^16.10.1",
     "react-dom": "^16.11.0",
     "react-flickity-component": "^3.4.0",
-    "react-scripts": "^3.3.0",
+    "react-scripts": "^5.0.1",
     "styled-components": "^4.4.0",
     "typescript": "^3.6.4"
   },
@@ -47,7 +47,7 @@
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addons": "^5.2.8",
-    "@storybook/react": "^5.2.8",
+    "@storybook/react": "^6.5.13",
     "@testing-library/react": "^9.4.0",
     "@typescript-eslint/eslint-plugin": "^2.13.0",
     "babel-plugin-styled-components": "^1.10.6"
